@@ -3,7 +3,7 @@
   <entry>
     <title>动态对话</title>
     <url>/python-base/</url>
-    <content><![CDATA[<!-- build time:Wed Jun 03 2020 15:04:18 GMT+0800 (GMT+08:00) --><p>自顶向下， 自底向上</p><p>1.划分子问题.</p><p><strong>2.理解子问题：状态表示方程</strong></p><p>3.子问题到父问题：状态转移</p><p>4.确定边界，初始状态， 最终状态</p><hr><h4 id="题152"><a href="#题152" class="headerlink" title="题152"></a>题152</h4><p>当我们知道动态转移方程的时候，其实应该发现了。我们的dp[i] 只和 dp[i - 1]有关，这是一个空间优化的信号，告诉我们可以借助两个额外变量记录即可。</p><hr><h4 id="动态规划解析："><a href="#动态规划解析：" class="headerlink" title="动态规划解析："></a>动态规划解析：</h4><p>++状态定义++： 设 dpdp 为一维数组，其中 dp[i]dp[i] 的值代表 斐波那契数列第 $i$ 个数字 。</p><p>++转移方程++： dp[i + 1] = dp[i] + dp[i - 1]dp[i+1]=dp[i]+dp[i−1] ，即对应数列定义 f(n + 1) = f(n) + f(n - 1)f(n+1)=f(n)+f(n−1) ；</p><p>++初始状态++： dp[0] = 1dp[0]=1, dp[1] = 1dp[1]=1 ，即初始化前两个数字；</p><p>++返回值++： dp[n]dp[n] ，即斐波那契数列的第 nn 个数字。</p><hr><!-- rebuild by neat -->]]></content>
+    <content><![CDATA[<!-- build time:Wed Jun 03 2020 19:22:07 GMT+0800 (GMT+08:00) --><p>自顶向下， 自底向上</p><p>1.划分子问题.</p><p><strong>2.理解子问题：状态表示方程</strong></p><p>3.子问题到父问题：状态转移</p><p>4.确定边界，初始状态， 最终状态</p><hr><h4 id="题152"><a href="#题152" class="headerlink" title="题152"></a>题152</h4><p>当我们知道动态转移方程的时候，其实应该发现了。我们的dp[i] 只和 dp[i - 1]有关，这是一个空间优化的信号，告诉我们可以借助两个额外变量记录即可。</p><hr><h4 id="动态规划解析："><a href="#动态规划解析：" class="headerlink" title="动态规划解析："></a>动态规划解析：</h4><p>++状态定义++： 设 dpdp 为一维数组，其中 dp[i]dp[i] 的值代表 斐波那契数列第 $i$ 个数字 。</p><p>++转移方程++： dp[i + 1] = dp[i] + dp[i - 1]dp[i+1]=dp[i]+dp[i−1] ，即对应数列定义 f(n + 1) = f(n) + f(n - 1)f(n+1)=f(n)+f(n−1) ；</p><p>++初始状态++： dp[0] = 1dp[0]=1, dp[1] = 1dp[1]=1 ，即初始化前两个数字；</p><p>++返回值++： dp[n]dp[n] ，即斐波那契数列的第 nn 个数字。</p><hr><!-- rebuild by neat -->]]></content>
       <categories>
         <category>python</category>
       </categories>
