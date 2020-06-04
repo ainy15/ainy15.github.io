@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Mysql事务</title>
-    <url>/Mysql%E4%BA%8B%E5%8A%A1/</url>
-    <content><![CDATA[<!-- build time:Thu Jun 04 2020 13:08:35 GMT+0800 (GMT+08:00) --><p><img src="https://cdn.jsdelivr.net/gh/ainy15/ainy15.github.io@master/images/clipboard.png" alt></p><!-- rebuild by neat -->]]></content>
-  </entry>
-  <entry>
     <title>动态对话</title>
     <url>/python-base/</url>
-    <content><![CDATA[<!-- build time:Thu Jun 04 2020 13:08:35 GMT+0800 (GMT+08:00) --><p>自顶向下， 自底向上</p><p>1.划分子问题.</p><p><strong>2.理解子问题：状态表示方程</strong></p><p>3.子问题到父问题：状态转移</p><p>4.确定边界，初始状态， 最终状态</p><hr><h4 id="题152"><a href="#题152" class="headerlink" title="题152"></a>题152</h4><p>当我们知道动态转移方程的时候，其实应该发现了。我们的dp[i] 只和 dp[i - 1]有关，这是一个空间优化的信号，告诉我们可以借助两个额外变量记录即可。</p><hr><h4 id="动态规划解析："><a href="#动态规划解析：" class="headerlink" title="动态规划解析："></a>动态规划解析：</h4><p>++状态定义++： 设 dpdp 为一维数组，其中 dp[i]dp[i] 的值代表 斐波那契数列第 $i$ 个数字 。</p><p>++转移方程++： dp[i + 1] = dp[i] + dp[i - 1]dp[i+1]=dp[i]+dp[i−1] ，即对应数列定义 f(n + 1) = f(n) + f(n - 1)f(n+1)=f(n)+f(n−1) ；</p><p>++初始状态++： dp[0] = 1dp[0]=1, dp[1] = 1dp[1]=1 ，即初始化前两个数字；</p><p>++返回值++： dp[n]dp[n] ，即斐波那契数列的第 nn 个数字。</p><hr><!-- rebuild by neat -->]]></content>
+    <content><![CDATA[<!-- build time:Thu Jun 04 2020 13:37:23 GMT+0800 (GMT+08:00) --><p>自顶向下， 自底向上</p><p>1.划分子问题.</p><p><strong>2.理解子问题：状态表示方程</strong></p><p>3.子问题到父问题：状态转移</p><p>4.确定边界，初始状态， 最终状态</p><hr><h4 id="题152"><a href="#题152" class="headerlink" title="题152"></a>题152</h4><p>当我们知道动态转移方程的时候，其实应该发现了。我们的dp[i] 只和 dp[i - 1]有关，这是一个空间优化的信号，告诉我们可以借助两个额外变量记录即可。</p><hr><h4 id="动态规划解析："><a href="#动态规划解析：" class="headerlink" title="动态规划解析："></a>动态规划解析：</h4><p>++状态定义++： 设 dpdp 为一维数组，其中 dp[i]dp[i] 的值代表 斐波那契数列第 $i$ 个数字 。</p><p>++转移方程++： dp[i + 1] = dp[i] + dp[i - 1]dp[i+1]=dp[i]+dp[i−1] ，即对应数列定义 f(n + 1) = f(n) + f(n - 1)f(n+1)=f(n)+f(n−1) ；</p><p>++初始状态++： dp[0] = 1dp[0]=1, dp[1] = 1dp[1]=1 ，即初始化前两个数字；</p><p>++返回值++： dp[n]dp[n] ，即斐波那契数列的第 nn 个数字。</p><hr><!-- rebuild by neat -->]]></content>
       <categories>
         <category>python</category>
       </categories>
       <tags>
         <tag>python</tag>
         <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql事务</title>
+    <url>/Mysql%E4%BA%8B%E5%8A%A1/</url>
+    <content><![CDATA[<!-- build time:Thu Jun 04 2020 13:37:23 GMT+0800 (GMT+08:00) --><p><img src="https://cdn.jsdelivr.net/gh/ainy15/ainy15.github.io@master/images/clipboard.png" alt=""></p><ul><li><p>事务隔离级别（设置完 事务隔离级别，才开启事务）</p><ul><li>脏读：事务A修改，事务B读取，但事务A失败回滚。事务B读取的修改的值，不是正真的值。(行。某一行数据)</li><li>不可重复读：事务A读取数据，事务B修改数据并提交了，事务A再次读取，发现两者不一样。（行。update或者delete操作）</li><li>幻读：事务A修改或查询表某一条件的所有数据，事务B或进行修改或删除操作并提交了，事务A再次查询数据，发现数据还有为修改或者多出写数据等问题。（表）</li></ul></li><li><p>排它锁（x锁）与共享锁（s锁）</p><ul><li>添加排它锁：对数据进行操作（update，insert，delete）时，不允许其他事务对同一资源操作（包括读）。事务A对某数据加排它（可读可写），其他事务不能对该数据添加任何锁，不能进行读写。</li><li>添加共享锁：只能进行读操作，不允许其他操作，只许读。事务A对该数据加共享锁，（锁未释放时）其他事务自能对该数据进行读，不能更改或删除。</li><li>考虑问题时：这个锁什么时候释放？</li></ul></li><li><p>read-commited：解决了脏读。</p><ul><li>方法——–修改 行数据 添加排它锁，提交了事务才释放；<br>读取 行数据 添加共享锁，读取完就释放。</li></ul></li><li><p>repeatable-read：解决了脏读，不可重复读。（默认）</p><ul><li>方法——–修改 行数据 添加排它锁，提交了事务才释放；<br>读取 行数据 添加共享锁，提交了事务才释放。</li></ul></li><li><p>serializable：解决了所有问题</p><ul><li>方法——-对于表来说，读时加s锁，写时加x锁。</li></ul></li></ul><p><strong>总结：</strong></p><ol><li>数据库并发问题，主要通过设置事务隔离级别来解决，而事务隔离级别一般则通过锁机制的实现；<br>MySQL默认隔离级别（RR）使用MVCC+锁混合的模式来解决脏读、不可重读、幻读等问题。</li><li>MySQL（Innodb引擎）下<ul><li>默认的事务级别为：可重复读级别（RR）；（可通过设置进行更改）</li><li>默认锁级别为：行锁；（可通过设置进行更改）</li><li>Where筛选条件中使用索引字段的，加的是行锁；不是使用索引字段筛选的，加的是表锁。<br>意向共享锁和意向排它锁是数据库主动加的，不需要我们手动处理；</li><li>对于UPDATE、DELETE和INSERT语句，InnoDB会自动给涉及数据集加排他锁；</li><li>对于普通SELECT语句，InnoDB不会加任何锁；（可以自己手动上锁）</li></ul></li></ol><hr><ul><li><p>其他：</p><p>&nbsp;&nbsp;&nbsp;&nbsp;乐观锁适用于写比较少的情况下（并发量大/多读场景），即冲突真的很少发生的时候，这样可以省去了锁的开销，加大了系统的整个吞吐量。但如果是多写的情况，一般会经常产生冲突，这就会导致上层应用会不断的进行retry，这样反倒是降低了性能，所以一般多写的场景下用悲观锁就比较合适。</p></li></ul><!-- rebuild by neat -->]]></content>
+      <tags>
+        <tag>Mysql</tag>
       </tags>
   </entry>
 </search>
